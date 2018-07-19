@@ -6,9 +6,11 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(normalizationContext={"groups" = {"api"}})
  * @ORM\Entity(repositoryClass="App\Repository\RisificRepository")
  */
 class Risific
@@ -23,21 +25,28 @@ class Risific
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     * @Groups({"api"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"api"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Gedmo\Slug(fields={"title"})
+     * @Groups({"api"})
      */
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Chapter", mappedBy="risific", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Chapter", mappedBy="risific", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OrderBy({"position": "ASC"})
+     * @Groups({"api"})
      */
     private $chapters;
 

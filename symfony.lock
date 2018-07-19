@@ -11,6 +11,9 @@
             "ref": "18727d8f229306860b46955f438e1897421da689"
         }
     },
+    "behat/transliterator": {
+        "version": "v1.2.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -77,8 +80,26 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "fabpot/goutte": {
+        "version": "v3.2.3"
+    },
+    "gedmo/doctrine-extensions": {
+        "version": "v2.4.35"
+    },
+    "guzzlehttp/guzzle": {
+        "version": "6.3.3"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.4.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "league/html-to-markdown": {
+        "version": "4.7.0"
     },
     "nelmio/cors-bundle": {
         "version": "1.5",
@@ -116,6 +137,9 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "1.0.2"
     },
@@ -134,7 +158,19 @@
             "ref": "f7895777cd673fcefbc321a9063077a24e5df646"
         }
     },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.2",
+            "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
+        }
+    },
     "symfony/asset": {
+        "version": "v4.1.1"
+    },
+    "symfony/browser-kit": {
         "version": "v4.1.1"
     },
     "symfony/cache": {
@@ -152,6 +188,9 @@
             "ref": "e3868d2f4a5104f19f844fe551099a00c6562527"
         }
     },
+    "symfony/css-selector": {
+        "version": "v4.1.1"
+    },
     "symfony/debug": {
         "version": "v4.1.1"
     },
@@ -159,6 +198,9 @@
         "version": "v4.1.1"
     },
     "symfony/doctrine-bridge": {
+        "version": "v4.1.1"
+    },
+    "symfony/dom-crawler": {
         "version": "v4.1.1"
     },
     "symfony/dotenv": {
@@ -218,6 +260,9 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.8.0"
     },
+    "symfony/polyfill-php72": {
+        "version": "v1.8.0"
+    },
     "symfony/process": {
         "version": "v4.1.1"
     },
@@ -273,6 +318,9 @@
         }
     },
     "symfony/validator": {
+        "version": "v4.1.1"
+    },
+    "symfony/var-dumper": {
         "version": "v4.1.1"
     },
     "symfony/web-server-bundle": {
