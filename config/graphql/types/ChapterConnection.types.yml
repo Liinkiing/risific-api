@@ -1,0 +1,7 @@
+ChapterConnection:
+  type: relay-connection
+  config:
+    nodeType: Chapter!
+    connectionFields:
+      totalCount:
+        type: Int!

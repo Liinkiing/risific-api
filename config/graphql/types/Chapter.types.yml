@@ -1,0 +1,23 @@
+Chapter:
+  type: object
+  config:
+    description: A chapter from a Risific
+    fields:
+      id:
+        description: The ID of the chapter
+        type: ID!
+      createdAt:
+        description: The creation date of the risific
+        type: DateTime!
+      title:
+        description: The title of the chapter
+        type: String!
+      position:
+        description: The chapter number associated to a risific
+        type: Int!
+      slug:
+        description: The slug (seo-friendly name) of the risific
+        type: String!
+      body:
+        description: The body of the chapter
+        type: String!

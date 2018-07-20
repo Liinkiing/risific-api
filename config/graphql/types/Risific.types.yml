@@ -1,0 +1,29 @@
+Risific:
+  type: object
+  config:
+    description: A risific made by a khey
+    fields:
+      id:
+        description: The ID of the risific
+        type: ID!
+      createdAt:
+        description: The creation date of the risific
+        type: DateTime!
+      title:
+        description: The title of the risific
+        type: String!
+      slug:
+        description: The slug (seo-friendly name) of the risific
+        type: String!
+      chapters:
+        type: ChapterConnection!
+        description: The associated chapters of the risific
+        argsBuilder: Relay::Connection
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\RisificChaptersResolver", [value, args])'
+        args:
+          first:
+            type: Int
+            defaultValue: 100
+          orderBy:
+            type: ChapterOrder
+            defaultValue: { field: POSITION, direction: DESC }

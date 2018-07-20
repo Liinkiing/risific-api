@@ -1,0 +1,12 @@
+ChapterOrder:
+  type: input-object
+  config:
+    description: Ways in which chapters can be ordered.
+    fields:
+      field:
+        type: ChapterOrderField!
+        description: The field in which to order the chapters by.
+      direction:
+        type: OrderDirection!
+        defaultValue: ASC
+        description: The direction in which to order the chapters.

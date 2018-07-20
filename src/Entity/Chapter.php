@@ -2,19 +2,12 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Serializer\Annotation\Groups;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 
 /**
- * @ApiResource(
- *     attributes={"number"={"position": "ASC"}},
- *     normalizationContext={"groups" = {"api"}}
- * )
  * @ORM\Entity(repositoryClass="App\Repository\ChapterRepository")
  */
 class Chapter
@@ -48,7 +41,6 @@ class Chapter
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Risific", inversedBy="chapters")
-     * @ApiFilter(SearchFilter::class, properties={"risific.slug"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $risific;
@@ -61,16 +53,10 @@ class Chapter
     private $createdAt;
 
     /**
-     * @ORM\Column(type="string", length=10)
-     * @ApiFilter(SearchFilter::class)
-     */
-    private $position = '1';
-
-    /**
      * @Groups({"api"})
      * @ORM\Column(type="integer")
      */
-    private $number = 1;
+    private $position = 1;
 
     public function getId()
     {
@@ -137,27 +123,16 @@ class Chapter
         return $this;
     }
 
-    public function getPosition(): ?string
+    public function getPosition(): ?int
     {
         return $this->position;
     }
 
-    public function setPosition(string $position): self
+    public function setPosition(int $position): self
     {
         $this->position = $position;
 
         return $this;
     }
 
-    public function getNumber(): ?int
-    {
-        return $this->number;
-    }
-
-    public function setNumber(int $number): self
-    {
-        $this->number = $number;
-
-        return $this;
-    }
 }

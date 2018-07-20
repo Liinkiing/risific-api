@@ -1,16 +1,4 @@
 {
-    "api-platform/api-pack": {
-        "version": "1.1.0"
-    },
-    "api-platform/core": {
-        "version": "2.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "2.1",
-            "ref": "18727d8f229306860b46955f438e1897421da689"
-        }
-    },
     "behat/transliterator": {
         "version": "v1.2.0"
     },
@@ -119,6 +107,27 @@
     "ocramius/proxy-manager": {
         "version": "2.2.0"
     },
+    "overblog/graphiql-bundle": {
+        "version": "0.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.1",
+            "ref": "fe8d172f2480efc598f5a8be0e732656d3594cec"
+        }
+    },
+    "overblog/graphql-bundle": {
+        "version": "0.11",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.11",
+            "ref": "cb22b949fa6a4b01f6955e78a58444605f062616"
+        }
+    },
+    "overblog/graphql-php-generator": {
+        "version": "v0.7.3"
+    },
     "paragonie/random_compat": {
         "version": "v2.0.17"
     },
@@ -166,9 +175,6 @@
             "version": "1.2",
             "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
         }
-    },
-    "symfony/asset": {
-        "version": "v4.1.1"
     },
     "symfony/browser-kit": {
         "version": "v4.1.1"
@@ -257,6 +263,9 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/options-resolver": {
+        "version": "v4.1.1"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.8.0"
     },
@@ -284,32 +293,14 @@
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
     },
-    "symfony/security": {
-        "version": "v4.1.1"
-    },
-    "symfony/security-bundle": {
-        "version": "3.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.3",
-            "ref": "f8a63faa0d9521526499c0a8f403c9964ecb0527"
-        }
-    },
     "symfony/serializer": {
         "version": "v4.1.1"
     },
+    "symfony/serializer-pack": {
+        "version": "v1.0.1"
+    },
     "symfony/stopwatch": {
         "version": "v4.1.1"
-    },
-    "symfony/translation": {
-        "version": "3.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.3",
-            "ref": "6bcd6c570c017ea6ae5a7a6a027c929fd3542cd8"
-        }
     },
     "symfony/twig-bridge": {
         "version": "v4.1.1"
@@ -322,9 +313,6 @@
             "version": "3.3",
             "ref": "f75ac166398e107796ca94cc57fa1edaa06ec47f"
         }
-    },
-    "symfony/validator": {
-        "version": "v4.1.1"
     },
     "symfony/var-dumper": {
         "version": "v4.1.1"
@@ -358,9 +346,6 @@
     },
     "webonyx/graphql-php": {
         "version": "v0.12.4"
-    },
-    "willdurand/negotiation": {
-        "version": "v2.3.1"
     },
     "zendframework/zend-code": {
         "version": "3.3.0"

@@ -5,6 +5,12 @@ namespace App\Utils;
 
 class Str
 {
+    public static function camelize($string, $separator = '_')
+    {
+        return str_replace($separator, '', lcfirst(ucwords(strtolower($string), $separator)));
+    }
+
+
     public static function contains(string $str, string $needle): bool
     {
         if (strpos($str, $needle) !== false) {

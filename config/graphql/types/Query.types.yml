@@ -1,0 +1,9 @@
+Query:
+  type: object
+  config:
+    fields:
+      risific:
+        type: Risific!
+        args:
+          id: ID!
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\RisificResolver", [args])'
