@@ -16,7 +16,7 @@ class RisificExporter extends JvcTopicExporter
 {
 
     public const RISIFIC_CHAPTER_CHARS_MIN = 500;
-    public const RISIFIC_CHAPTER_STICKERS_MIN = 14;
+    public const RISIFIC_CHAPTER_STICKERS_MIN = 12;
     public const BLOCKQUOTE_SELECTOR = '.blockquote-jv';
 
     protected $em;
