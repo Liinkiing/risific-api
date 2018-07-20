@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -39,13 +41,14 @@ class Risific
     /**
      * @ORM\Column(type="string", length=255)
      * @Gedmo\Slug(fields={"title"})
+     * @ApiFilter(SearchFilter::class)
      * @Groups({"api"})
      */
     private $slug;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Chapter", mappedBy="risific", orphanRemoval=true, cascade={"persist"})
-     * @ORM\OrderBy({"position": "ASC"})
+     * @ORM\OrderBy({"number": "ASC"})
      * @Groups({"api"})
      */
     private $chapters;

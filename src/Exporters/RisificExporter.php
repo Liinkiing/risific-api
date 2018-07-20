@@ -39,7 +39,7 @@ class RisificExporter extends JvcTopicExporter
         } else {
             $risific = (new Risific())
                 ->setTitle($title);
-            $position = 1;
+            $number = 1;
             do {
                 echo $this->getPageTitle($page) . "\n";
 
@@ -47,12 +47,14 @@ class RisificExporter extends JvcTopicExporter
                     $chapter = (new Chapter())
                         ->setTitle($this->findChapterTitle($chapterPost))
                         ->setBody($chapterPost->html())
-                        ->setPosition($position);
+                        ->setPosition((string)$number)
+                        ->setNumber($number);
+
                     $risific->addChapter($chapter);
                     if ($io) {
                         $io->text('Adding chapter <info>' . $chapter->getTitle() . '</info>');
                     }
-                    ++$position;
+                    ++$number;
                 }
 
                 if ($nextPageLink = $this->getNextPageLink($page)) {
@@ -64,7 +66,7 @@ class RisificExporter extends JvcTopicExporter
             $this->em->persist($risific);
             $this->em->flush();
             if ($io) {
-                $io->success('Successfully persisted "' . $title . '"" fic to database with ' . $position . ' chapters!');
+                $io->success('Successfully persisted "' . $title . '"" fic to database with ' . $number . ' chapters!');
             }
         }
 

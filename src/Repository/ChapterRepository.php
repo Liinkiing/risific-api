@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Chapter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -19,32 +20,22 @@ class ChapterRepository extends ServiceEntityRepository
         parent::__construct($registry, Chapter::class);
     }
 
-//    /**
-//     * @return Chapter[] Returns an array of Chapter objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Chapter
+    public function findByRisificSlugAndPosition(string $slug, int $position): ?Chapter
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $qb = $this->createQueryBuilder('c');
+
+        try {
+            return $qb
+                ->innerJoin('c.risific', 'risific')
+                ->andWhere($qb->expr()->eq('risific.slug', ':slug'))
+                ->setParameter('slug', $slug)
+                ->andWhere($qb->expr()->eq('c.position', $position))
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
     }
-    */
+
 }
