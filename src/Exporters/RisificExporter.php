@@ -17,6 +17,7 @@ class RisificExporter extends JvcTopicExporter
 
     public const RISIFIC_CHAPTER_CHARS_MIN = 500;
     public const RISIFIC_CHAPTER_STICKERS_MIN = 14;
+    public const BLOCKQUOTE_SELECTOR = '.blockquote-jv';
 
     protected $em;
     protected $repository;
@@ -87,7 +88,10 @@ class RisificExporter extends JvcTopicExporter
         $this->getReplies($page)->each(function (Crawler $replyBloc) use (&$results) {
             $reply = $replyBloc->filter('.bloc-contenu .txt-msg');
             $wordsCount = str_word_count($reply->text());
-            if ($wordsCount > self::RISIFIC_CHAPTER_CHARS_MIN && \count($this->getStickers($reply)) > self::RISIFIC_CHAPTER_STICKERS_MIN) {
+            if ($wordsCount > self::RISIFIC_CHAPTER_CHARS_MIN &&
+                \count($this->getStickers($reply)) > self::RISIFIC_CHAPTER_STICKERS_MIN &&
+                $reply->filter(self::BLOCKQUOTE_SELECTOR)->count() === 0
+            ) {
                 $results[] = $reply;
             }
         });
