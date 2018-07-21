@@ -48,8 +48,7 @@ class RisificExporter extends JvcTopicExporter
                     $chapter = (new Chapter())
                         ->setTitle($this->findChapterTitle($chapterPost))
                         ->setBody($chapterPost->html())
-                        ->setPosition((string)$number)
-                        ->setNumber($number);
+                        ->setPosition($number);
 
                     $risific->addChapter($chapter);
                     if ($io) {
