@@ -11,7 +11,7 @@ Query:
         description: Get all Risifics.
         type: RisificConnection!
         argsBuilder: Relay::Connection
-        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificsResolver", [args])'
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Query\\RisificsResolver", [args])'
         args:
           first:
             type: Int
@@ -20,15 +20,15 @@ Query:
             type: RisificOrder
             defaultValue: { field: CREATED_AT, direction: DESC }
       risific:
-        type: Risific!
-        description: Get a particular Risific.
-        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificResolver", [args])'
+        type: Risific
+        description: Search a particular Risific.
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Query\\RisificResolver", [args])'
         args:
-          id: ID!
+          search: RisificSearch!
       chapter:
-        type: Chapter!
-        description: Get a given chapter by a position and Risific slug
-        resolve: '@=resolver("App\\GraphQL\\Resolver\\Chapter\\ChapterResolver", [args])'
+        type: Chapter
+        description: Get a given chapter by a position and a Risific slug
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Query\\ChapterResolver", [args])'
         args:
           risificSlug: String!
           position: Int!

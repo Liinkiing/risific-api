@@ -1,13 +1,14 @@
 <?php
 
-namespace App\GraphQL\Resolver\Chapter;
+namespace App\GraphQL\Resolver\Risific;
 
 use App\Entity\Chapter;
+use App\Entity\Risific;
 use App\Repository\ChapterRepository;
 use Overblog\GraphQLBundle\Definition\Argument;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 
-class ChapterResolver implements ResolverInterface
+class RisificChapterResolver implements ResolverInterface
 {
     private $repository;
 
@@ -16,11 +17,11 @@ class ChapterResolver implements ResolverInterface
         $this->repository = $repository;
     }
 
-    public function __invoke(Argument $args): Chapter
+    public function __invoke(Risific $risific, Argument $args): ?Chapter
     {
-        [$slug, $position] = [$args->offsetGet('risificSlug'), $args->offsetGet('position')];
+        $position = $args->offsetGet('position');
 
-        return $this->repository->findByRisificSlugAndPosition($slug, $position);
+        return $this->repository->findOneBy(['risific' => $risific, 'position' => $position]);
     }
 
 }

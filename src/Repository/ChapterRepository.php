@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Chapter;
+use App\Entity\Risific;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -20,6 +21,18 @@ class ChapterRepository extends ServiceEntityRepository
         parent::__construct($registry, Chapter::class);
     }
 
+
+    public function countByRisific(Risific $risific): int
+    {
+        $qb = $this->createQueryBuilder('c');
+        return (int)$qb
+            ->andWhere('c.risific = :risific')
+            ->setParameter('risific', $risific)
+            ->select('COUNT(c.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+    }
 
     public function findByRisificSlugAndPosition(string $slug, int $position): ?Chapter
     {

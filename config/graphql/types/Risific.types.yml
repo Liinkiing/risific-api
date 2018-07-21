@@ -16,11 +16,22 @@ Risific:
       slug:
         description: The slug (seo-friendly name) of the risific
         type: String!
+      chapter:
+        type: Chapter
+        description: Get a particular chapter by its position
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificChapterResolver", [value, args])'
+        args:
+          position:
+            type: Int!
+      chaptersCount:
+        type: Int!
+        description: The number of chapters associated to the risific
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificChaptersCountResolver", [value])'
       chapters:
         type: ChapterConnection!
         description: The associated chapters of the risific
         argsBuilder: Relay::Connection
-        resolve: '@=resolver("App\\GraphQL\\Resolver\\Chapter\\RisificChaptersResolver", [value, args])'
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificChaptersResolver", [value, args])'
         args:
           first:
             type: Int

@@ -1,8 +1,10 @@
 <?php
 
-namespace App\GraphQL\Resolver\Risific;
+namespace App\GraphQL\Resolver\Query;
 
+use App\Entity\Risific;
 use App\Repository\RisificRepository;
+use App\Utils\Str;
 use Overblog\GraphQLBundle\Definition\Argument;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 
@@ -15,8 +17,13 @@ class RisificResolver implements ResolverInterface
         $this->repository = $repository;
     }
 
-    public function __invoke(Argument $args)
+    public function __invoke(Argument $args): ?Risific
     {
-        return $this->repository->find($args->offsetGet('id'));
+        $search = $args->offsetGet('search');
+        [$field, $value] = [$search['field'], $search['value']];
+
+        return $this->repository->findOneBy(
+            [Str::camelize($field) => $value]
+        );
     }
 }

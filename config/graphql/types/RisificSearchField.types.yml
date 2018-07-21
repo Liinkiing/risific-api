@@ -1,0 +1,11 @@
+RisificSearchField:
+  type: enum
+  config:
+    description: Properties by which risifics can be searched
+    values:
+      ID:
+        value: ID
+        description: Allows searching risifics by their ID.
+      SLUG:
+        value: SLUG
+        description: Allows searching risifics by their slug.

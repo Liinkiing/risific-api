@@ -1,35 +1,33 @@
 <?php
 
-namespace App\GraphQL\Resolver\Chapter;
+namespace App\GraphQL\Resolver\Query;
 
-use App\Entity\Risific;
-use App\Repository\ChapterRepository;
+use App\Repository\RisificRepository;
 use App\Utils\Str;
 use Overblog\GraphQLBundle\Definition\Argument;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
 use Overblog\GraphQLBundle\Relay\Connection\Output\ConnectionBuilder;
 
-class RisificChaptersResolver implements ResolverInterface
+class RisificsResolver implements ResolverInterface
 {
     private $repository;
 
-    public function __construct(ChapterRepository $repository)
+    public function __construct(RisificRepository $repository)
     {
         $this->repository = $repository;
     }
 
-    public function __invoke(Risific $risific, Argument $args): Connection
+    public function __invoke(Argument $args): Connection
     {
         $orderBy = $args->offsetGet('orderBy');
-        $chapters = $this->repository->findBy(
-            ['risific' => $risific],
+        $risifics = $this->repository->findBy(
+            [],
             [Str::camelize($orderBy['field']) => $orderBy['direction']]
         );
-        $connection = ConnectionBuilder::connectionFromArray($chapters, $args);
-        $connection->totalCount = \count($chapters);
+        $connection = ConnectionBuilder::connectionFromArray($risifics, $args);
+        $connection->totalCount = \count($risifics);
 
         return $connection;
     }
-
 }

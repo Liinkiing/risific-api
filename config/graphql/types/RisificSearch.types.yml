@@ -1,0 +1,11 @@
+RisificSearch:
+  type: input-object
+  config:
+    description: Ways in which risifics can be searched.
+    fields:
+      field:
+        type: RisificSearchField!
+        description: The field in which to search the risifics by.
+      value:
+        type: Any!
+        description: The value for your search.
