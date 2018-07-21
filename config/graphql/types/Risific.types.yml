@@ -1,6 +1,7 @@
 Risific:
   type: object
   config:
+    interfaces: [Node]
     description: A risific made by a khey
     fields:
       id:
@@ -19,7 +20,7 @@ Risific:
         type: ChapterConnection!
         description: The associated chapters of the risific
         argsBuilder: Relay::Connection
-        resolve: '@=resolver("App\\GraphQL\\Resolver\\RisificChaptersResolver", [value, args])'
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Chapter\\RisificChaptersResolver", [value, args])'
         args:
           first:
             type: Int

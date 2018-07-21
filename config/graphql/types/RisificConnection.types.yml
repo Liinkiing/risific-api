@@ -1,0 +1,7 @@
+RisificConnection:
+  type: relay-connection
+  config:
+    nodeType: Risific!
+    connectionFields:
+      totalCount:
+        type: Int!

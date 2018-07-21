@@ -1,0 +1,12 @@
+RisificOrder:
+  type: input-object
+  config:
+    description: Ways in which risifics can be ordered.
+    fields:
+      field:
+        type: RisificOrderField!
+        description: The field in which to order the risifics by.
+      direction:
+        type: OrderDirection!
+        defaultValue: ASC
+        description: The direction in which to order the risifics.

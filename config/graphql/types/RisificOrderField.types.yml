@@ -1,0 +1,8 @@
+RisificOrderField:
+  type: enum
+  config:
+    description: Properties by which risifics can be ordered
+    values:
+      CREATED_AT:
+        value: CREATED_AT
+        description: Allows ordering a list of risifics by when they were created.

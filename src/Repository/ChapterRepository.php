@@ -25,17 +25,13 @@ class ChapterRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('c');
 
-        try {
-            return $qb
-                ->innerJoin('c.risific', 'risific')
-                ->andWhere($qb->expr()->eq('risific.slug', ':slug'))
-                ->setParameter('slug', $slug)
-                ->andWhere($qb->expr()->eq('c.position', $position))
-                ->getQuery()
-                ->getOneOrNullResult();
-        } catch (NonUniqueResultException $e) {
-            return null;
-        }
+        return $qb
+            ->innerJoin('c.risific', 'risific')
+            ->andWhere($qb->expr()->eq('risific.slug', ':slug'))
+            ->setParameter('slug', $slug)
+            ->andWhere($qb->expr()->eq('c.position', $position))
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
 }

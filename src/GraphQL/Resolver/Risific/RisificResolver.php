@@ -1,8 +1,6 @@
 <?php
 
-
-namespace App\GraphQL\Resolver;
-
+namespace App\GraphQL\Resolver\Risific;
 
 use App\Repository\RisificRepository;
 use Overblog\GraphQLBundle\Definition\Argument;

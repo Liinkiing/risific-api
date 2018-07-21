@@ -1,8 +1,6 @@
 <?php
 
-
-namespace App\GraphQL\Resolver;
-
+namespace App\GraphQL\Resolver\Chapter;
 
 use App\Entity\Risific;
 use App\Repository\ChapterRepository;

@@ -1,22 +1,23 @@
 Chapter:
   type: object
   config:
+    interfaces: [Node]
     description: A chapter from a Risific
     fields:
       id:
         description: The ID of the chapter
         type: ID!
       createdAt:
-        description: The creation date of the risific
+        description: The creation date of the chapter
         type: DateTime!
       title:
         description: The title of the chapter
         type: String!
       position:
-        description: The chapter number associated to a risific
+        description: The chapter number associated to a Risific
         type: Int!
       slug:
-        description: The slug (seo-friendly name) of the risific
+        description: The slug (seo-friendly name) of the chapter
         type: String!
       body:
         description: The body of the chapter

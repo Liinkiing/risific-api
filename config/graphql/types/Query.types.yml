@@ -2,8 +2,33 @@ Query:
   type: object
   config:
     fields:
+      node:
+        builder: "Relay::Node"
+        builderConfig:
+          nodeInterfaceType: Node
+          idFetcher: '@=resolver("App\\GraphQL\\Resolver\\GlobalIdResolver", [value])'
+      risifics:
+        description: Get all Risifics.
+        type: RisificConnection!
+        argsBuilder: Relay::Connection
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificsResolver", [args])'
+        args:
+          first:
+            type: Int
+            defaultValue: 100
+          orderBy:
+            type: RisificOrder
+            defaultValue: { field: CREATED_AT, direction: DESC }
       risific:
         type: Risific!
+        description: Get a particular Risific.
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificResolver", [args])'
         args:
           id: ID!
-        resolve: '@=resolver("App\\GraphQL\\Resolver\\RisificResolver", [args])'
+      chapter:
+        type: Chapter!
+        description: Get a given chapter by a position and Risific slug
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Chapter\\ChapterResolver", [args])'
+        args:
+          risificSlug: String!
+          position: Int!
