@@ -168,7 +168,6 @@ class User implements UserInterface, \Serializable
      */
     public function eraseCredentials(): void
     {
-        // TODO: Implement eraseCredentials() method.
     }
 
     public function setRoles(array $roles): self
