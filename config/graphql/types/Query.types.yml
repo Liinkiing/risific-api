@@ -2,6 +2,11 @@ Query:
   type: object
   config:
     fields:
+      viewer:
+        access: '@=hasRole("ROLE_USER")'
+        type: User!
+        description: The currently authenticated user.
+        resolve: '@=getUser()'
       node:
         builder: "Relay::Node"
         builderConfig:

@@ -4,6 +4,7 @@ namespace App\GraphQL\Resolver\Type;
 
 use App\Entity\Chapter;
 use App\Entity\Risific;
+use App\Entity\User;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 use Overblog\GraphQLBundle\Error\UserError;
 use Overblog\GraphQLBundle\Resolver\TypeResolver;
@@ -20,7 +21,9 @@ class NodeTypeResolver implements ResolverInterface
 
     public function __invoke($node)
     {
-
+        if ($node instanceof User) {
+            return $this->resolver->resolve('User');
+        }
         if ($node instanceof Risific) {
             return $this->resolver->resolve('Risific');
         }

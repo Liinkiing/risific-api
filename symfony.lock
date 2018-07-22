@@ -86,8 +86,23 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "lcobucci/jwt": {
+        "version": "3.2.2"
+    },
     "league/html-to-markdown": {
         "version": "4.7.0"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "509b1542f3180a1cfe248ade8b7bf5092c2d4127"
+        }
+    },
+    "namshi/jose": {
+        "version": "7.2.3"
     },
     "nelmio/cors-bundle": {
         "version": "1.5",
@@ -233,6 +248,9 @@
             "ref": "e921bdbfe20cdefa3b82f379d1cd36df1bc8d115"
         }
     },
+    "symfony/form": {
+        "version": "v4.1.1"
+    },
     "symfony/framework-bundle": {
         "version": "3.3",
         "recipe": {
@@ -251,6 +269,9 @@
     "symfony/inflector": {
         "version": "v4.1.1"
     },
+    "symfony/intl": {
+        "version": "v4.1.1"
+    },
     "symfony/lts": {
         "version": "4-dev"
     },
@@ -265,6 +286,9 @@
     },
     "symfony/options-resolver": {
         "version": "v4.1.1"
+    },
+    "symfony/polyfill-intl-icu": {
+        "version": "v1.8.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.8.0"
@@ -293,6 +317,18 @@
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
     },
+    "symfony/security": {
+        "version": "v4.1.1"
+    },
+    "symfony/security-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "f8a63faa0d9521526499c0a8f403c9964ecb0527"
+        }
+    },
     "symfony/serializer": {
         "version": "v4.1.1"
     },
@@ -301,6 +337,15 @@
     },
     "symfony/stopwatch": {
         "version": "v4.1.1"
+    },
+    "symfony/translation": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "6bcd6c570c017ea6ae5a7a6a027c929fd3542cd8"
+        }
     },
     "symfony/twig-bridge": {
         "version": "v4.1.1"
@@ -313,6 +358,9 @@
             "version": "3.3",
             "ref": "f75ac166398e107796ca94cc57fa1edaa06ec47f"
         }
+    },
+    "symfony/validator": {
+        "version": "v4.1.1"
     },
     "symfony/var-dumper": {
         "version": "v4.1.1"

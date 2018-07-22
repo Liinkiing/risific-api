@@ -2,7 +2,7 @@ overblog_graphql:
     definitions:
         schema:
             query: Query
-            types: [Risific, Chapter]
+            types: [Risific, Chapter, User]
         mappings:
             auto_discover: false
             types:
