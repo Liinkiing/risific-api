@@ -4,8 +4,8 @@ ChapterOrderField:
     description: Properties by which chapters can be ordered
     values:
       CREATED_AT:
-        value: CREATED_AT
+        value: createdAt
         description: Allows ordering a list of chapters by when they were created.
       POSITION:
-        value: POSITION
+        value: position
         description: Allows ordering a list of chapters by their position.

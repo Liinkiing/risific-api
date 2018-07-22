@@ -4,8 +4,8 @@ RisificSearchField:
     description: Properties by which risifics can be searched
     values:
       ID:
-        value: ID
+        value: id
         description: Allows searching risifics by their ID.
       SLUG:
-        value: SLUG
+        value: slug
         description: Allows searching risifics by their slug.

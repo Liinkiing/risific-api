@@ -24,7 +24,7 @@ class RisificChaptersResolver implements ResolverInterface
         $orderBy = $args->offsetGet('orderBy');
         $chapters = $this->repository->findBy(
             ['risific' => $risific],
-            [Str::camelize($orderBy['field']) => $orderBy['direction']]
+            [$orderBy['field'] => $orderBy['direction']]
         );
         $connection = ConnectionBuilder::connectionFromArray($chapters, $args);
         $connection->totalCount = \count($chapters);

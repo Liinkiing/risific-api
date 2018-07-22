@@ -23,7 +23,7 @@ class RisificsResolver implements ResolverInterface
         $orderBy = $args->offsetGet('orderBy');
         $risifics = $this->repository->findBy(
             [],
-            [Str::camelize($orderBy['field']) => $orderBy['direction']]
+            [$orderBy['field'] => $orderBy['direction']]
         );
         $connection = ConnectionBuilder::connectionFromArray($risifics, $args);
         $connection->totalCount = \count($risifics);

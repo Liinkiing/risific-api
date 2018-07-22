@@ -23,7 +23,7 @@ class RisificResolver implements ResolverInterface
         [$field, $value] = [$search['field'], $search['value']];
 
         return $this->repository->findOneBy(
-            [Str::camelize($field) => $value]
+            [$field => $value]
         );
     }
 }
