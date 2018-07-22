@@ -14,13 +14,12 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class RisificExporter extends JvcTopicExporter
 {
-
-    public const RISIFIC_CHAPTER_CHARS_MIN = 500;
-    public const RISIFIC_CHAPTER_STICKERS_MIN = 12;
-    public const BLOCKQUOTE_SELECTOR = '.blockquote-jv';
-
     protected $em;
     protected $repository;
+
+    private $chapterCharsMin = 500;
+    private $chapterStickersMin = 12;
+    private $blockquoteSelector = '.blockquote-jv';
 
     public function __construct(EntityManagerInterface $em, RisificRepository $repository)
     {
@@ -87,9 +86,9 @@ class RisificExporter extends JvcTopicExporter
         $this->getReplies($page)->each(function (Crawler $replyBloc) use (&$results) {
             $reply = $replyBloc->filter('.bloc-contenu .txt-msg');
             $wordsCount = str_word_count($reply->text());
-            if ($wordsCount > self::RISIFIC_CHAPTER_CHARS_MIN &&
-                \count($this->getStickers($reply)) > self::RISIFIC_CHAPTER_STICKERS_MIN &&
-                $reply->filter(self::BLOCKQUOTE_SELECTOR)->count() === 0
+            if ($wordsCount > $this->chapterCharsMin &&
+                \count($this->getStickers($reply)) > $this->chapterStickersMin &&
+                $reply->filter($this->blockquoteSelector)->count() === 0
             ) {
                 $results[] = $reply;
             }
@@ -106,6 +105,42 @@ class RisificExporter extends JvcTopicExporter
         });
 
         return $results;
+    }
+
+    public function setChapterStickersMin(int $chapterStickersMin): self
+    {
+        $this->chapterStickersMin = $chapterStickersMin;
+
+        return $this;
+    }
+
+    public function setChapterCharsMin(int $chapterCharsMin): self
+    {
+        $this->chapterCharsMin = $chapterCharsMin;
+
+        return $this;
+    }
+
+    public function getChapterStickersMin(): int
+    {
+        return $this->chapterStickersMin;
+    }
+
+    public function getChapterCharsMin(): int
+    {
+        return $this->chapterCharsMin;
+    }
+
+    public function getBlockquoteSelector(): string
+    {
+        return $this->blockquoteSelector;
+    }
+
+    public function setBlockquoteSelector(string $blockquoteSelector): self
+    {
+        $this->blockquoteSelector = $blockquoteSelector;
+
+        return $this;
     }
 
 }

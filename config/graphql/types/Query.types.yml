@@ -18,7 +18,7 @@ Query:
             defaultValue: 100
           orderBy:
             type: RisificOrder
-            defaultValue: { field: CREATED_AT, direction: DESC }
+            defaultValue: { field: createdAt, direction: DESC }
       risific:
         type: Risific
         description: Search a particular Risific.

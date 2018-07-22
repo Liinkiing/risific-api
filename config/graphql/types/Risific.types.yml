@@ -37,4 +37,4 @@ Risific:
             defaultValue: 100
           orderBy:
             type: ChapterOrder
-            defaultValue: { field: POSITION, direction: DESC }
+            defaultValue: { field: position, direction: DESC }
