@@ -26,7 +26,6 @@ Risific:
       chaptersCount:
         type: Int!
         description: The number of chapters associated to the risific
-        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificChaptersCountResolver", [value])'
       chapters:
         type: ChapterConnection!
         description: The associated chapters of the risific

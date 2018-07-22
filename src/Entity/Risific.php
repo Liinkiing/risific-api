@@ -48,6 +48,11 @@ class Risific
      */
     private $chapters;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $chaptersCount = 0;
+
     public function __construct()
     {
         $this->chapters = new ArrayCollection();
@@ -106,6 +111,7 @@ class Risific
     {
         if (!$this->chapters->contains($chapter)) {
             $this->chapters[] = $chapter;
+            $this->increaseChaptersCount();
             $chapter->setRisific($this);
         }
 
@@ -116,6 +122,7 @@ class Risific
     {
         if ($this->chapters->contains($chapter)) {
             $this->chapters->removeElement($chapter);
+            $this->decreaseChaptersCount();
             // set the owning side to null (unless already changed)
             if ($chapter->getRisific() === $this) {
                 $chapter->setRisific(null);
@@ -124,4 +131,31 @@ class Risific
 
         return $this;
     }
+
+    public function getChaptersCount(): ?int
+    {
+        return $this->chaptersCount;
+    }
+
+    public function setChaptersCount(int $chaptersCount): self
+    {
+        $this->chaptersCount = $chaptersCount;
+
+        return $this;
+    }
+
+    public function increaseChaptersCount(): self
+    {
+        $this->chaptersCount++;
+
+        return $this;
+    }
+
+    public function decreaseChaptersCount(): self
+    {
+        $this->chaptersCount--;
+
+        return $this;
+    }
+
 }

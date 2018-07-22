@@ -66,7 +66,7 @@ class RisificExporter extends JvcTopicExporter
             $this->em->persist($risific);
             $this->em->flush();
             if ($io) {
-                $io->success('Successfully persisted "' . $title . '"" fic to database with ' . $number . ' chapters!');
+                $io->success('Successfully persisted "' . $risific->getTitle() . '"" fic to database with ' . $risific->getChaptersCount() . ' chapters!');
             }
         }
 
