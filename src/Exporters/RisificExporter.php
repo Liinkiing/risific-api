@@ -17,7 +17,7 @@ class RisificExporter extends JvcTopicExporter
     protected $em;
     protected $repository;
 
-    private $chapterCharsMin = 500;
+    private $chapterCharsMin = 400;
     private $chapterStickersMin = 12;
     private $blockquoteSelector = '.blockquote-jv';
 

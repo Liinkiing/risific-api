@@ -29,13 +29,13 @@ class Risific
     private $createdAt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=191)
      * @Groups({"api"})
      */
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=191)
      * @Gedmo\Slug(fields={"title"})
      * @Groups({"api"})
      */

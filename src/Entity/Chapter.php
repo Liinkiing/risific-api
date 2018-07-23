@@ -21,13 +21,13 @@ class Chapter
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=191)
      * @Groups({"api"})
      */
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=191)
      * @Groups({"api"})
      * @Gedmo\Slug(fields={"title"})
      */
