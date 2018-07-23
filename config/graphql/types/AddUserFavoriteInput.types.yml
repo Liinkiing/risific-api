@@ -1,0 +1,8 @@
+AddUserFavoriteInput:
+  type: relay-mutation-input
+  config:
+    description: Input type of addUserFavorite
+    fields:
+      risificId:
+        description: The risific ID which is going to be favorited
+        type: ID!

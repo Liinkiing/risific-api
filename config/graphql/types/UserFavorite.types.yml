@@ -1,0 +1,11 @@
+UserFavorite:
+  type: object
+  config:
+    description: A relation between a user and a favorited risific
+    fields:
+      risific:
+        type: Risific!
+        description: The risific which has been favorited
+      favoritedAt:
+        type: DateTime!
+        description: The date where the user favorited the risific

@@ -1,0 +1,18 @@
+Mutation:
+  type: object
+  config:
+    fields:
+      addUserFavorite:
+        access: '@=hasRole("ROLE_USER")'
+        builder: 'Relay::Mutation'
+        builderConfig:
+          inputType: AddUserFavoriteInput
+          payloadType: AddUserFavoritePayload
+          mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\User\\AddUserFavoriteMutation", [value, getUser()])'
+      deleteUserFavorite:
+        access: '@=hasRole("ROLE_USER")'
+        builder: 'Relay::Mutation'
+        builderConfig:
+          inputType: DeleteUserFavoriteInput
+          payloadType: DeleteUserFavoritePayload
+          mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\User\\DeleteUserFavoriteMutation", [value, getUser()])'

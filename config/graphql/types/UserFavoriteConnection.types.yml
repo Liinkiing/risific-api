@@ -1,0 +1,7 @@
+UserFavoriteConnection:
+  type: relay-connection
+  config:
+    nodeType: UserFavorite!
+    connectionFields:
+      totalCount:
+        type: Int!

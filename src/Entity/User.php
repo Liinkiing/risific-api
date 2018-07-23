@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -48,9 +50,15 @@ class User implements UserInterface, \Serializable
      */
     private $createdAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\UserFavorite", mappedBy="user")
+     */
+    private $favorites;
+
     public function __construct()
     {
         $this->roles = [];
+        $this->favorites = new ArrayCollection();
     }
 
     public function getId()
@@ -188,4 +196,13 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
+
+    /**
+     * @return Collection|UserFavorite[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
 }

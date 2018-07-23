@@ -1,0 +1,7 @@
+DeleteUserFavoritePayload:
+  type: relay-mutation-payload
+  config:
+    fields:
+      deletedUserFavoriteId:
+        type: ID!
+        description: The ID of the deleted UserFavorite (composite id).

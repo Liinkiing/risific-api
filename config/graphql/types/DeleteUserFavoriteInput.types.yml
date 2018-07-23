@@ -1,0 +1,8 @@
+DeleteUserFavoriteInput:
+  type: relay-mutation-input
+  config:
+    description: Input type of deleteUserFavorite
+    fields:
+      risificId:
+        description: The risific ID which is going to be unfavorited
+        type: ID!

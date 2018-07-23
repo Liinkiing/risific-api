@@ -1,0 +1,8 @@
+UserFavoriteOrderField:
+  type: enum
+  config:
+    description: Properties by which risifics can be ordered
+    values:
+      FAVORITED_AT:
+        value: favoritedAt
+        description: Allows ordering a list of user favorites by when they were favorited.

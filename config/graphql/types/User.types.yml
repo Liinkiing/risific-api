@@ -18,6 +18,18 @@ User:
       username:
         description: The username of the user
         type: String!
+      favorites:
+        description: The favorited risifics of the user
+        type: UserFavoriteConnection!
+        argsBuilder: Relay::Connection
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\User\\UserFavoriteResolver", [value, args])'
+        args:
+          first:
+            type: Int
+            defaultValue: 100
+          orderBy:
+            type: UserFavoriteOrder
+            defaultValue: { field: favoritedAt, direction: DESC }
       email:
         description: The email of the user
         type: String!

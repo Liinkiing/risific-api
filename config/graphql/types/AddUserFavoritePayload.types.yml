@@ -1,0 +1,7 @@
+AddUserFavoritePayload:
+  type: relay-mutation-payload
+  config:
+    fields:
+      userFavorite:
+        type: UserFavorite
+        description: The newly created UserFavorite.

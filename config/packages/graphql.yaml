@@ -2,6 +2,7 @@ overblog_graphql:
     definitions:
         schema:
             query: Query
+            mutation: Mutation
             types: [Risific, Chapter, User]
         mappings:
             auto_discover: false

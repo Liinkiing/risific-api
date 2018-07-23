@@ -1,0 +1,12 @@
+UserFavoriteOrder:
+  type: input-object
+  config:
+    description: Ways in which user favorite can be ordered.
+    fields:
+      field:
+        type: UserFavoriteOrderField!
+        description: The field in which to order the user favorite by.
+      direction:
+        type: OrderDirection!
+        defaultValue: ASC
+        description: The direction in which to order the user favorite.
