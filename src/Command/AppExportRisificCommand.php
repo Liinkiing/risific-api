@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-use App\Exporters\RisificExporter;
+use App\Exporters\RisificImporter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,13 +13,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class AppExportRisificCommand extends Command
 {
     protected static $defaultName = 'app:export-risific';
-    protected $exporter;
+    protected $importer;
     protected $projectDir;
     protected $filesystem;
 
-    public function __construct(RisificExporter $exporter)
+    public function __construct(RisificImporter $exporter)
     {
-        $this->exporter = $exporter;
+        $this->importer = $exporter;
         parent::__construct();
     }
 
@@ -33,14 +33,20 @@ class AppExportRisificCommand extends Command
                 'c',
                 InputOption::VALUE_REQUIRED,
                 'Set the minimum characters a reply has to have to be considered as a Risific chapter',
-                $this->exporter->getChapterCharsMin()
+                $this->importer->getChapterCharsMin()
             )
             ->addOption(
                 'min-stickers',
-                's',
+                'k',
                 InputOption::VALUE_REQUIRED,
                 'Set the minimum stickers a reply has to have to be considered as a Risific chapter',
-                $this->exporter->getChapterStickersMin()
+                $this->importer->getChapterStickersMin()
+            )
+            ->addOption(
+                'safe-mode',
+                's',
+                InputOption::VALUE_NONE,
+                'Activate the safe mode. Crawler will navigate between pages every 2s to prevent JVC from blocking it'
             );
     }
 
@@ -50,7 +56,8 @@ class AppExportRisificCommand extends Command
         [$url, $charsMin, $stickersMin] = [$input->getArgument('topic_url'), $input->getOption('min-chars'), $input->getOption('min-stickers')];
         $io->text("Extracting fic from <info>$url</info>... ");
 
-        $this->exporter
+        $this->importer
+            ->setSafeMode($input->getOption('safe-mode'))
             ->setChapterCharsMin($charsMin)
             ->setChapterStickersMin($stickersMin)
             ->setBaseUrl($url)

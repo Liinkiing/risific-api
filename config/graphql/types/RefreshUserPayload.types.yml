@@ -1,4 +1,4 @@
-LoginUserPayload:
+RefreshUserPayload:
   type: relay-mutation-payload
   config:
     fields:

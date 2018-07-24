@@ -12,12 +12,14 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DomCrawler\Crawler;
 
-class RisificExporter extends JvcTopicExporter
+class RisificImporter extends JvcTopicImporter
 {
     protected $em;
     protected $repository;
+    protected const WAIT_TIME_SAFE_MODE = 1;
 
     private $chapterCharsMin = 400;
+    private $safeMode = false;
     private $chapterStickersMin = 12;
     private $blockquoteSelector = '.blockquote-jv';
 
@@ -57,6 +59,9 @@ class RisificExporter extends JvcTopicExporter
                 }
 
                 if ($nextPageLink = $this->getNextPageLink($page)) {
+                    if ($this->safeMode) {
+                        sleep(self::WAIT_TIME_SAFE_MODE);
+                    }
                     $page = $this->client->click(
                         $nextPageLink->link()
                     );
@@ -139,6 +144,18 @@ class RisificExporter extends JvcTopicExporter
     public function setBlockquoteSelector(string $blockquoteSelector): self
     {
         $this->blockquoteSelector = $blockquoteSelector;
+
+        return $this;
+    }
+
+    public function isSafeMode(): bool
+    {
+        return $this->safeMode;
+    }
+
+    public function setSafeMode(bool $safeMode): self
+    {
+        $this->safeMode = $safeMode;
 
         return $this;
     }

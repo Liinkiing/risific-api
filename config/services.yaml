@@ -29,3 +29,13 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Gesdinet\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator:
+        alias: gesdinet.jwtrefreshtoken.authenticator
+
+    Gesdinet\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider:
+        alias: gesdinet.jwtrefreshtoken.user_provider
+
+    Gesdinet\JWTRefreshTokenBundle\Doctrine\RefreshTokenManager:
+        alias: gesdinet.jwtrefreshtoken.refresh_token_manager
+

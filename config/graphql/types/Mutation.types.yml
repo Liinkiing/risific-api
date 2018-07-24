@@ -8,7 +8,14 @@ Mutation:
         builderConfig:
           inputType: LoginUserInput
           payloadType: LoginUserPayload
-          mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\User\\LoginUserMutation", [value, getUser()])'
+          mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\User\\LoginUserMutation", [value])'
+      refreshUser:
+        access: '@=isAnonymous()'
+        builder: 'Relay::Mutation'
+        builderConfig:
+          inputType: RefreshUserInput
+          payloadType: RefreshUserPayload
+          mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\User\\RefreshUserTokenMutation", [serv("request_stack"), value])'
       addUserFavorite:
         access: '@=hasRole("ROLE_USER")'
         builder: 'Relay::Mutation'

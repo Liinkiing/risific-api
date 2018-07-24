@@ -8,7 +8,7 @@ use Goutte\Client;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DomCrawler\Crawler;
 
-abstract class JvcTopicExporter
+abstract class JvcTopicImporter
 {
     protected const PAGES_LINK_SELECTOR = 'a.lien-jv';
     protected const ACTIVE_PAGE_SELECTOR = 'span.page-active';

@@ -1,0 +1,8 @@
+RefreshUserInput:
+  type: relay-mutation-input
+  config:
+    description: Input type of refreshUser
+    fields:
+      refreshToken:
+        type: String!
+        description: The refresh token associated to the user used to generated a new JWT token
