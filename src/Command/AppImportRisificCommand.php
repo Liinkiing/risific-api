@@ -10,9 +10,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class AppExportRisificCommand extends Command
+class AppImportRisificCommand extends Command
 {
-    protected static $defaultName = 'app:export-risific';
+    protected static $defaultName = 'app:import-risific';
     protected $importer;
     protected $projectDir;
     protected $filesystem;
