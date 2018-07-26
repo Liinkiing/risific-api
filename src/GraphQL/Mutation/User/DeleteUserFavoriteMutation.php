@@ -32,11 +32,11 @@ class DeleteUserFavoriteMutation implements MutationInterface
 
         if ($risific = $this->risificRepository->find($risificId)) {
             if ($userFavorite = $this->favoriteRepository->findOneBy(compact('user', 'risific'))) {
-                $deletedUserFavoriteId = $risific->getId() . ',' . $user->getId();
+                $deletedRisificFavoriteId = $risific->getId();
                 $this->manager->remove($userFavorite);
                 $this->manager->flush();
 
-                return compact('deletedUserFavoriteId');
+                return compact('deletedRisificFavoriteId');
             }
 
             throw new UserError('Risific is not in favorites!');

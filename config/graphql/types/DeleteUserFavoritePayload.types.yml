@@ -2,6 +2,6 @@ DeleteUserFavoritePayload:
   type: relay-mutation-payload
   config:
     fields:
-      deletedUserFavoriteId:
+      deletedRisificFavoriteId:
         type: ID!
-        description: The ID of the deleted UserFavorite (composite id).
+        description: The ID of the Risific which has been unfavorited

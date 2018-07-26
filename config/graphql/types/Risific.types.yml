@@ -16,6 +16,11 @@ Risific:
       slug:
         description: The slug (seo-friendly name) of the risific
         type: String!
+      viewerHasFavorited:
+        access: "@=isAuthenticated()"
+        description: Does the connected user has favorited this risific?
+        type: Boolean!
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\Risific\\RisificViewerHasFavorited", [value, getUser()])'
       chapter:
         type: Chapter
         description: Get a particular chapter by its position
