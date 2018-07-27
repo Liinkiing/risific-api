@@ -1,8 +1,12 @@
 UserFavorite:
   type: object
+  inherits: [Node]
   config:
+    interfaces: [Node]
     description: A relation between a user and a favorited risific
     fields:
+      id:
+        description: The ID of the relationship between a risific favorited and a user
       risific:
         type: Risific!
         description: The risific which has been favorited

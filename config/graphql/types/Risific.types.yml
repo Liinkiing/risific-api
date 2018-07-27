@@ -1,12 +1,12 @@
 Risific:
   type: object
+  inherits: [Node]
   config:
     interfaces: [Node]
     description: A risific made by a khey
     fields:
       id:
         description: The ID of the risific
-        type: ID!
       createdAt:
         description: The creation date of the risific
         type: DateTime!

@@ -1,12 +1,12 @@
 User:
   type: object
+  inherits: [Node]
   config:
     interfaces: [Node]
     description: A user
     fields:
       id:
         description: The ID of the user
-        type: ID!
       roles:
         description: The role(s) of the user
         type: '[UserRole]'

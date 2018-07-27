@@ -12,13 +12,21 @@ class UserFavorite
 {
 
     /**
-     * @ORM\Id @ORM\ManyToOne(targetEntity="App\Entity\Risific")
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
+     * @ORM\Column(type="uuid")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Risific")
      * @ORM\JoinColumn(nullable=false)
      */
     private $risific;
 
     /**
-     * @ORM\Id @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="favorites")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="favorites")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -46,6 +54,13 @@ class UserFavorite
 
         return $this;
     }
+
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
     public function getUser(): ?User
     {

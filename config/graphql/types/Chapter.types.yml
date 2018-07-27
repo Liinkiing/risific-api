@@ -1,12 +1,12 @@
 Chapter:
   type: object
+  inherits: [Node]
   config:
     interfaces: [Node]
     description: A chapter from a Risific
     fields:
       id:
         description: The ID of the chapter
-        type: ID!
       createdAt:
         description: The creation date of the chapter
         type: DateTime!
