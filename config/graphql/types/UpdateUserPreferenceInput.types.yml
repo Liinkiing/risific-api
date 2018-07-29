@@ -1,0 +1,8 @@
+UpdateUserPreferenceInput:
+  type: relay-mutation-input
+  config:
+    description: Input type of updateUserPreference
+    fields:
+      theme:
+        type: ThemeValue!
+        description: The newly user theme

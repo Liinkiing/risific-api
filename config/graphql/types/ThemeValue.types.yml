@@ -1,0 +1,11 @@
+ThemeValue:
+  type: enum
+  config:
+    description: Available values for a theme
+    values:
+      LIGHT:
+        value: light
+        description: The light theme.
+      DARK:
+        value: dark
+        description: The dark theme.

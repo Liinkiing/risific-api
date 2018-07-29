@@ -1,0 +1,11 @@
+UserPreference:
+  type: object
+  config:
+    description: A user preference
+    fields:
+      id:
+        type: ID!
+        description: The ID of the user preference
+      theme:
+        type: String!
+        description: The choosen theme of the user preference

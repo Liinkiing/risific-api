@@ -1,0 +1,7 @@
+UpdateUserPreferencePayload:
+  type: relay-mutation-payload
+  config:
+    fields:
+      userPreference:
+        type: UserPreference!
+        description: The newly user preference

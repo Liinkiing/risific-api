@@ -55,9 +55,16 @@ class User implements UserInterface, \Serializable
      */
     private $favorites;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\UserPreference", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $preference;
+
     public function __construct()
     {
         $this->roles = [];
+        $this->preference = new UserPreference();
         $this->favorites = new ArrayCollection();
     }
 
@@ -203,6 +210,18 @@ class User implements UserInterface, \Serializable
     public function getFavorites(): Collection
     {
         return $this->favorites;
+    }
+
+    public function getPreference(): ?UserPreference
+    {
+        return $this->preference;
+    }
+
+    public function setPreference(UserPreference $preference): self
+    {
+        $this->preference = $preference;
+
+        return $this;
     }
 
 }

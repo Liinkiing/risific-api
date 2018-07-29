@@ -27,15 +27,15 @@ class AddUserFavoriteMutation implements MutationInterface
         $this->favoriteRepository = $favoriteRepository;
     }
 
-    public function __invoke(Argument $args, User $user)
+    public function __invoke(Argument $args, User $viewer)
     {
         $risificId = $args->offsetGet('risificId');
 
         if ($risific = $this->risificRepository->find($risificId)) {
-            if ($this->favoriteRepository->findOneBy(compact('user', 'risific'))) {
+            if ($this->favoriteRepository->findOneBy(compact('viewer', 'risific'))) {
                 throw new UserError('Risific already in favorites!');
             }
-            $userFavorite = new UserFavorite($user, $risific);
+            $userFavorite = new UserFavorite($viewer, $risific);
             $this->manager->persist($userFavorite);
             $this->manager->flush();
 

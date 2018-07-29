@@ -4,4 +4,4 @@ DeleteUserFavoritePayload:
     fields:
       risific:
         type: Risific!
-        description: The the Risific which has been unfavorited
+        description: The Risific which has been unfavorited

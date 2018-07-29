@@ -18,6 +18,10 @@ User:
       username:
         description: The username of the user
         type: String!
+      preference:
+        type: UserPreference!
+        description: The preference of the user
+        access: '@=serv("App\\GraphQL\\Resolver\\User\\UserIsGrantedResolver").isGranted(getUser(), value)'
       favorites:
         description: The favorited risifics of the user
         type: UserFavoriteConnection!

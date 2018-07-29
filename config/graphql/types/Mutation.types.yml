@@ -30,3 +30,10 @@ Mutation:
           inputType: DeleteUserFavoriteInput
           payloadType: DeleteUserFavoritePayload
           mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\User\\DeleteUserFavoriteMutation", [value, getUser()])'
+      updateUserPreference:
+        access: '@=hasRole("ROLE_USER")'
+        builder: 'Relay::Mutation'
+        builderConfig:
+          inputType: UpdateUserPreferenceInput
+          payloadType: UpdateUserPreferencePayload
+          mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\User\\UpdateUserPreferenceMutation", [value, getUser()])'
