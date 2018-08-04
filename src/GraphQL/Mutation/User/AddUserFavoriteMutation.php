@@ -32,7 +32,7 @@ class AddUserFavoriteMutation implements MutationInterface
         $risificId = $args->offsetGet('risificId');
 
         if ($risific = $this->risificRepository->find($risificId)) {
-            if ($this->favoriteRepository->findOneBy(compact('viewer', 'risific'))) {
+            if ($this->favoriteRepository->findOneBy(['user' => $viewer, 'risific' => $risific])) {
                 throw new UserError('Risific already in favorites!');
             }
             $userFavorite = new UserFavorite($viewer, $risific);

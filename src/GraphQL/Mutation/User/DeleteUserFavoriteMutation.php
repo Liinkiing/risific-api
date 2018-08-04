@@ -31,7 +31,7 @@ class DeleteUserFavoriteMutation implements MutationInterface
         $risificId = $args->offsetGet('risificId');
 
         if ($risific = $this->risificRepository->find($risificId)) {
-            if ($userFavorite = $this->favoriteRepository->findOneBy(compact('viewer', 'risific'))) {
+            if ($userFavorite = $this->favoriteRepository->findOneBy(['user' => $viewer, 'risific' => $risific])) {
                 $this->manager->remove($userFavorite);
                 $this->manager->flush();
 
