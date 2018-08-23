@@ -1,0 +1,7 @@
+AddRisificPayload:
+  type: relay-mutation-payload
+  config:
+    fields:
+      processing:
+        type: Boolean!
+        description: Is the risific being currently processed?

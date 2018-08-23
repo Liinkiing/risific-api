@@ -23,6 +23,13 @@ Mutation:
           inputType: AddUserFavoriteInput
           payloadType: AddUserFavoritePayload
           mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\User\\AddUserFavoriteMutation", [value, getUser()])'
+      addRisific:
+        access: '@=hasRole("ROLE_USER")'
+        builder: 'Relay::Mutation'
+        builderConfig:
+          inputType: AddRisificInput
+          payloadType: AddRisificPayload
+          mutateAndGetPayload: '@=mutation("App\\GraphQL\\Mutation\\Risific\\AddRisificMutation", [args])'
       deleteUserFavorite:
         access: '@=hasRole("ROLE_USER")'
         builder: 'Relay::Mutation'

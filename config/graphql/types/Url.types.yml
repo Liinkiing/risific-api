@@ -1,0 +1,6 @@
+URL:
+  type: custom-scalar
+  config:
+    serialize: ["App\\GraphQL\\Type\\UrlType", 'serialize']
+    parseValue: ["App\\GraphQL\\Type\\UrlType", 'parseValue']
+    parseLiteral: ["App\\GraphQL\\Type\\UrlType", 'parseLiteral']

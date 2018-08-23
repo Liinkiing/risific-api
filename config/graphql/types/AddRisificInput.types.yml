@@ -1,0 +1,8 @@
+AddRisificInput:
+  type: relay-mutation-input
+  config:
+    description: Input type of addRisific
+    fields:
+      risificUrl:
+        description: The topic url of the risific in jeuxvideo.com
+        type: URL!
